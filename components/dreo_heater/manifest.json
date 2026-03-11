@@ -6,6 +6,6 @@
   "dependencies": [],
   "requirements": [],
   "codeowners": ["@lygris"],
-  "files": ["dreo_heater/climate.py", "dreo_heater/__init__.py", "dreo_heater/dreo_heater.h"],
+  "files": ["climate.py", "__init__.py", "dreo_heater.h"],
   "config_flow": false
 }
