@@ -1,15 +1,15 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
-from esphome.components import climate, uart, switch
+from esphome.components import climate, uart, switch, tuya
 from esphome.const import CONF_ID, CONF_UART_ID
 
-DEPENDENCIES = ['uart']
+DEPENDENCIES = ['uart', 'tuya']
 
 CONF_DEBUG = "debug"
 CONF_TEMP_UNIT_SWITCH = "temp_unit_switch"
 
 dreo_heater_ns = cg.esphome_ns.namespace('dreo_heater')
-DreoHeater = dreo_heater_ns.class_('DreoHeater', climate.Climate, uart.UARTDevice, cg.Component)
+DreoHeater = dreo_heater_ns.class_('DreoHeater', climate.Climate, tuya.Tuya, cg.Component)
 
 CONFIG_SCHEMA = climate._CLIMATE_SCHEMA.extend({
     cv.GenerateID(): cv.declare_id(DreoHeater),

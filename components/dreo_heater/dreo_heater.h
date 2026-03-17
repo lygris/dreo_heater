@@ -1,7 +1,6 @@
 #pragma once
-#include "esphome.h"
+#include "esphome/components/tuya/tuya.h"
 #include "esphome/components/climate/climate.h"
-#include "esphome/components/uart/uart.h"
 #include "esphome/components/switch/switch.h"
 #include "esphome/components/number/number.h"
 #include <cmath>
@@ -38,9 +37,9 @@ enum TuyaDP {
     DP_TEMP_UNIT = 22
 };
 
-class DreoHeater : public climate::Climate, public uart::UARTDevice, public Component {
+class DreoHeater : public climate::Climate, public tuya::Tuya, public Component {
  public:
-  DreoHeater(uart::UARTComponent *parent) : uart::UARTDevice(parent) {}
+  DreoHeater(uart::UARTComponent *parent) : tuya::Tuya(parent) {}
 
   bool debug_mode{false};
   void set_debug(bool enable) { this->debug_mode = enable; }
